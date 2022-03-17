@@ -9,17 +9,19 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <td>Nome da Categoria</td>
+                <td>Nome da Tag</td>
+                <th>Quantidade de Produtos</th>
                 <td>Editar</td>
                 <td>Apagar</td>
             </tr>
         </thead>
-    @foreach ($categories as $category )
+    @foreach ($tags as $tag )
     <tr>
-        <td> {{$category->id}}</td>
-        <td> {{$category->name}}</td>
-        <td><a  href="{{route('category.edit', $category->id)}}">Editar</a></td>
-        <td><a  href="{{route('category.destroy', $category->id)}}">Apagar</a></td>
+        <td> {{$tag->id}}</td>
+        <td> {{$tag->name}}</td>
+        <td>{{$tag->Products->count()}}</td>
+        <td><a  href="">Editar</a></td>
+        <td><a  href="">Apagar</a></td>
 
     </tr>
 

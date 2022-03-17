@@ -1,4 +1,6 @@
+@extends('layouts.app')
 
+@section('content')
 <table>
 @foreach ($categories as $category )
 <tr>
@@ -9,4 +11,5 @@
 
 @endforeach
 </table>
+@endsection
 

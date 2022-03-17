@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <form action="{{route('product.store')}}" method="POST">
 
     <!--alterei para store estava create-->
@@ -14,5 +17,14 @@
         @endforeach
     </select>
 
+    Selecione uma tag:
+    <select multiple name="tags[]">
+        @foreach($tags as $tag)
+        <option  value="{{$tag->id}}">{{$tag->name}}</option>
+        @endforeach
+    </select>
+
+
     <button type="submit">Enviar</button>
 </form>
+@endsection
