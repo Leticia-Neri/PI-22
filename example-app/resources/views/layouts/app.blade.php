@@ -17,6 +17,8 @@
                     <li class="nav-item"><a class="nav-link" href="{{route('product.trash')}}">Lixeira Produto</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('category.index')}}">category</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('category.trash')}}">category trash</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('tag.index')}}">tag index</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('tag.trash')}}">tag trash</a></li>
                 </ul>
             </div>
         </nav>

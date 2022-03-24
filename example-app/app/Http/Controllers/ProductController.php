@@ -24,15 +24,17 @@ class ProductController extends Controller
 
     public function edit(Product $product){
         //dd($product);
-        return view('product.edit')->with(['product'=> $product, 'categories'=> Category::all()]);
+        return view('product.edit')->with(['product'=> $product, 'categories'=> Category::all(), 'tags'=> Tag::all()]);
     }
 
 
     public function update(Product $product, Request $request){
 
         $product->update($request->all());
+        $product->Tags()->sync($request->tags);
         session()->flash('success', 'O produto foi alterado com sucesso');
         return redirect(route('product.index', $product->id));
+
                                                //pra onde ta voltando
     }
 

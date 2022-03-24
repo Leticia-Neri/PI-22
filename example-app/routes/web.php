@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +20,14 @@ use App\Http\Controllers\TagController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+Route::middleware(['auth'])->group(function(){
 
 Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('/product/create/',[ProductController::class, 'store'])->name('product.store');
@@ -42,11 +52,10 @@ Route::get('/category/trash/restore/{product}', [CategoryController::class, 'res
 Route::get('/tag/create', [TagController::class, 'create'])->name('tag.create');
 Route::post('/tag/create/',[TagController::class, 'store'])->name('tag.store');
 Route::get('/tag', [TagController::class, 'index'])->name('tag.index');
-
 Route::get('/tag/destroy/{tag}', [TagController::class, 'destroy'])->name('tag.destroy');
 Route::get('/tag/edit/{tag}', [TagController::class, 'edit'])->name('tag.edit');
 Route::put('/tag/edit/{tag}', [TagController::class, 'update'])->name('tag.update');
 Route::get('/tag/trash', [TagController::class, 'trash'])->name('tag.trash');
 Route::get('/tag/trash/restore/{tag}', [TagController::class, 'restore'])->name('tag.restore');
-
+});
 

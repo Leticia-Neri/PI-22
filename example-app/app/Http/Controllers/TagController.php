@@ -23,4 +23,17 @@ class TagController extends Controller
         return redirect(route('tag.index'));
     }
 
+    public function edit(Tag $tag){
+        //dd($product);
+        return view('tag.edit')->with(['tag'=> $tag, 'tags'=> Tag::all()]);
+    }
+
+    public function update(Tag $tag, Request $request){
+
+        $tag->update($request->all());
+        session()->flash('success', 'O produto foi alterado com sucesso');
+        return redirect(route('tag.index', $tag->id));
+                                               //pra onde ta voltando
+    }
+
 }

@@ -20,7 +20,7 @@
         <td> {{$tag->id}}</td>
         <td> {{$tag->name}}</td>
         <td>{{$tag->Products->count()}}</td>
-        <td><a  href="">Editar</a></td>
+        <td><a  href="{{route('tag.edit', $tag->id)}}">Editar</a></td>
         <td><a  href="">Apagar</a></td>
 
     </tr>

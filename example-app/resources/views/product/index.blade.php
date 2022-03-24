@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<a class="btn btn-lg btn-success float-end me-5"href="{{route('product.create')}}">Criar Produto</a>
+
 <div class="container mt-3">
     <table class="table table-striped">
         <thead>
@@ -23,6 +25,7 @@
         <td> {{$product->Category->id}}</td>
         <td> {{$product->Category->name}}</td>
         <td> {{$product->description}}</td>
+        <td> @foreach ($product->Tags->pluck('name')->toArray() as $tag_name ){{$tag_name}} @endforeach </td>
         <td> {{$product->price}}</td>
         <td> {{$product->stock}}</td>
         <td><a  href="{{route('product.edit', $product->id)}}">Editar</a></td>
